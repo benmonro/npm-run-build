@@ -1,0 +1,42 @@
+{
+  "name": "npm-run-build",
+  "version": "1.1.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prebuild": "npm run build:ext",
+    "build": "babel src --out-dir lib",
+    "build:ext": "./build/ext.sh",
+    "prestart": "npm run build -- --watch & npm run pack -- --watch &",
+    "lint": "eslint src/**",
+    "link": "linklocal",
+    "vers": "standard-version -m \"chore(release): version %s [ci skip]\"",
+    "test": "mocha --compilers js:babel-core/register --recursive --require ./test/setup.js test/**/*.spec.js",
+    "pack": "webpack --config=webpack.config.babel.js",
+    "start": "node lib/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.19.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2017": "^6.16.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "express": "^4.14.0",
+    "linklocal": "^2.6.1",
+    "nodemon": "^1.11.0",
+    "standard-version": "^3.0.0",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "fileFormatter": "file:./ext/fileFormatter"
+  }
+}
