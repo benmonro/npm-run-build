@@ -1,0 +1,17 @@
+{
+ "env": {
+  "es6": true
+ },
+ "parserOptions": {
+  "ecmaFeatures": {
+   "experimentalObjectRestSpread": true,
+   "jsx": true
+  },
+  "sourceType": "module"
+ },
+ "extends": "eslint:recommended",
+ "rules": {
+  "semi": ["error", "always"],
+  "quotes": ["error", "double"]
+ }
+}
